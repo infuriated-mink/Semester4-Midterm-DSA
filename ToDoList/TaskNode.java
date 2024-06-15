@@ -1,4 +1,4 @@
-package To Do List;
+package ToDoList;
 
 public class TaskNode {
     Task task;

@@ -1,4 +1,4 @@
-package To Do List;
+package ToDoList;
 
 import java.util.ArrayList;
 
