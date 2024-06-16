@@ -13,10 +13,12 @@ public class TaskList {
 
     private Node head;
 
+    // Constructor to create an empty task list
     public TaskList() {
         this.head = null;
     }
 
+    // Method to add a task to the list
     public void addTask(Task task) {
         Node newNode = new Node(task);
         if (head == null) {
@@ -30,6 +32,7 @@ public class TaskList {
         }
     }
 
+    // Method to mark a task as completed
     public void markTaskAsCompleted(String description) {
         Node current = head;
         while (current != null) {
@@ -42,6 +45,7 @@ public class TaskList {
         System.out.println("Task not found: " + description);
     }
 
+    // Method to delete a task from the list
     public void deleteTask(int position) {
         if (head == null) {
             System.out.println("Task list is empty.");
@@ -71,10 +75,10 @@ public class TaskList {
             previous.next = current.next;
         }
 
-        // Ensure the deleted node's next pointer is set to null
         current.next = null;
     }
 
+    // Method to print all tasks in the list
     public void printTasks() {
         Node current = head;
         int index = 0;

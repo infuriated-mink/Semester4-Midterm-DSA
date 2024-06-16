@@ -17,7 +17,7 @@ public class Main {
             System.out.println("6. Exit");
             System.out.print("Choose an option: ");
             int option = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (option) {
                 case 1:
@@ -44,6 +44,7 @@ public class Main {
         }
     }
 
+    // Helper methods to create new user.
     private static void createUser(Scanner scanner) {
         System.out.print("Enter user name: ");
         String name = scanner.nextLine();
@@ -51,6 +52,7 @@ public class Main {
         System.out.println("User created: " + name);
     }
 
+    // Helper methods to add task to user.
     private static void addTask(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -61,6 +63,7 @@ public class Main {
         }
     }
 
+    // Helper methods to mark task as completed.
     private static void markTaskAsCompleted(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -71,6 +74,7 @@ public class Main {
         }
     }
 
+    // Helper methods to view tasks.
     private static void viewTasks(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -78,18 +82,20 @@ public class Main {
         }
     }
 
+    // Helper methods to delete task.
     private static void deleteTask(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
-            user.printTasks(); // Print tasks before asking for the position
+            user.printTasks();
             System.out.print("Enter task position to delete: ");
             int position = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
             user.deleteTask(position);
             System.out.println("Task deleted at position: " + position);
         }
     }
 
+    // Helper methods to get user.
     private static User getUser(Scanner scanner) {
         System.out.print("Enter user name: ");
         String name = scanner.nextLine();
