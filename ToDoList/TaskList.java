@@ -17,7 +17,6 @@ public class TaskList {
         this.head = null;
     }
 
-    // Method to add a task to the list
     public void addTask(Task task) {
         Node newNode = new Node(task);
         if (head == null) {
@@ -31,7 +30,6 @@ public class TaskList {
         }
     }
 
-    // Method to mark a task as completed
     public void markTaskAsCompleted(String description) {
         Node current = head;
         while (current != null) {
@@ -44,36 +42,46 @@ public class TaskList {
         System.out.println("Task not found: " + description);
     }
 
-    // Method to delete a task from the list
-    public void deleteTask(String description) {
+    public void deleteTask(int position) {
         if (head == null) {
             System.out.println("Task list is empty.");
             return;
         }
 
-        if (head.task.getDescription().equals(description)) {
-            head = head.next;
+        Node current = head;
+        Node previous = null;
+        int currentIndex = 0;
+
+        while (current != null && currentIndex != position) {
+            previous = current;
+            current = current.next;
+            currentIndex++;
+        }
+
+        if (current == null) {
+            System.out.println("Task not found at position: " + position);
             return;
         }
 
-        Node current = head;
-        while (current.next != null && !current.next.task.getDescription().equals(description)) {
-            current = current.next;
+        if (previous == null) {
+            // The task to be deleted is the head
+            head = current.next;
+        } else {
+            // Bypass the current node
+            previous.next = current.next;
         }
 
-        if (current.next == null) {
-            System.out.println("Task not found: " + description);
-        } else {
-            current.next = current.next.next;
-        }
+        // Ensure the deleted node's next pointer is set to null
+        current.next = null;
     }
 
-    // Method to print all tasks in the list
     public void printTasks() {
         Node current = head;
+        int index = 0;
         while (current != null) {
-            System.out.println(current.task);
+            System.out.println(index + ": " + current.task);
             current = current.next;
+            index++;
         }
     }
 }

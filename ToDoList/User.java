@@ -4,18 +4,18 @@ public class User {
     private String name;
     private TaskList taskList;
 
-    // Constructor to create a user
+    // Constructor to create a new user
     public User(String name) {
         this.name = name;
         this.taskList = new TaskList();
     }
 
-    // Getter
+    // Getter method to get the name of the user
     public String getName() {
         return name;
     }
 
-    // Method to add a task to the user's task list
+    // Method to add a task to the user
     public void addTask(String description) {
         taskList.addTask(new Task(description));
     }
@@ -25,12 +25,12 @@ public class User {
         taskList.markTaskAsCompleted(description);
     }
 
-    // Method to delete a task from the user's task list
-    public void deleteTask(String description) {
-        taskList.deleteTask(description);
+    // Method to delete a task from the user
+    public void deleteTask(int position) {
+        taskList.deleteTask(position);
     }
 
-    // Method to print all tasks for the user
+    // Method to print all the tasks of the user
     public void printTasks() {
         System.out.println("Tasks for " + name + ":");
         taskList.printTasks();

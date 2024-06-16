@@ -17,7 +17,7 @@ public class Main {
             System.out.println("6. Exit");
             System.out.print("Choose an option: ");
             int option = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Consume newline
 
             switch (option) {
                 case 1:
@@ -44,7 +44,6 @@ public class Main {
         }
     }
 
-    // Helper method to create a user
     private static void createUser(Scanner scanner) {
         System.out.print("Enter user name: ");
         String name = scanner.nextLine();
@@ -52,7 +51,6 @@ public class Main {
         System.out.println("User created: " + name);
     }
 
-    // Helper methods to perform operations on tasks
     private static void addTask(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -63,7 +61,6 @@ public class Main {
         }
     }
 
-    // Helper method to mark a task as completed
     private static void markTaskAsCompleted(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -74,7 +71,6 @@ public class Main {
         }
     }
 
-    // Helper method to view all tasks for a user
     private static void viewTasks(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -82,18 +78,18 @@ public class Main {
         }
     }
 
-    // Helper method to delete a task
     private static void deleteTask(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
-            System.out.print("Enter task description to delete: ");
-            String description = scanner.nextLine();
-            user.deleteTask(description);
-            System.out.println("Task deleted: " + description);
+            user.printTasks(); // Print tasks before asking for the position
+            System.out.print("Enter task position to delete: ");
+            int position = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+            user.deleteTask(position);
+            System.out.println("Task deleted at position: " + position);
         }
     }
 
-    // Helper method to get a user by name
     private static User getUser(Scanner scanner) {
         System.out.print("Enter user name: ");
         String name = scanner.nextLine();
