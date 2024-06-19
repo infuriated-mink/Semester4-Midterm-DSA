@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    // ArrayList to store all the users
     private static ArrayList<User> users = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -44,7 +45,7 @@ public class Main {
         }
     }
 
-    // Helper methods to create new user.
+    // Method to create a new user
     private static void createUser(Scanner scanner) {
         System.out.print("Enter user name: ");
         String name = scanner.nextLine();
@@ -52,7 +53,7 @@ public class Main {
         System.out.println("User created: " + name);
     }
 
-    // Helper methods to add task to user.
+    // Method to add a task to the user
     private static void addTask(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -63,7 +64,7 @@ public class Main {
         }
     }
 
-    // Helper methods to mark task as completed.
+    // Method to mark a task as completed
     private static void markTaskAsCompleted(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -74,7 +75,7 @@ public class Main {
         }
     }
 
-    // Helper methods to view tasks.
+    // Method to view all the tasks of the user
     private static void viewTasks(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -82,7 +83,7 @@ public class Main {
         }
     }
 
-    // Helper methods to delete task.
+    // Method to delete a task from the user
     private static void deleteTask(Scanner scanner) {
         User user = getUser(scanner);
         if (user != null) {
@@ -95,7 +96,7 @@ public class Main {
         }
     }
 
-    // Helper methods to get user.
+    // Method to get the user from the list of users
     private static User getUser(Scanner scanner) {
         System.out.print("Enter user name: ");
         String name = scanner.nextLine();

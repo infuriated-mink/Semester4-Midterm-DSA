@@ -4,13 +4,13 @@ public class User {
     private String name;
     private TaskList taskList;
 
-    // Constructor to create a new user
+    // Constructor to create a user
     public User(String name) {
         this.name = name;
         this.taskList = new TaskList();
     }
 
-    // Getter method to get the name of the user
+    // Getters
     public String getName() {
         return name;
     }
